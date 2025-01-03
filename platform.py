@@ -32,7 +32,7 @@ class AtmelmegaavrPlatform(PlatformBase):
             self.packages[framework_package]["optional"] = False
             self.packages["framework-arduino-megaavr"]["optional"] = True
 
-            if build_core in ("megatinycore", "dxcore"):
+            if build_core in ("megatinycore", "dxcore", "thinary"):
                 self.packages["toolchain-atmelavr"]["version"] = "~3.70300.0"
 
         if build_core in ("MegaCoreX", "megatinycore", "dxcore"):

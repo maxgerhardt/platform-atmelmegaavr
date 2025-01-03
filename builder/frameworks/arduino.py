@@ -56,11 +56,14 @@ if "build.usb_product" in board:
 
 env.SConscript("_bare.py", exports="env")
 
+# Adaptation for Thinary core. Has core = thinary but still cores/arduino
+build_core_dir = build_core if build_core != "thinary" else "arduino"
+
 env.Append(
     CPPDEFINES=CPPDEFINES,
     CPPPATH=[
-        join(FRAMEWORK_DIR, "cores", build_core, "api", "deprecated"),
-        join(FRAMEWORK_DIR, "cores", build_core),
+        join(FRAMEWORK_DIR, "cores", build_core_dir, "api", "deprecated"),
+        join(FRAMEWORK_DIR, "cores", build_core_dir),
     ],
     LIBSOURCE_DIRS=[join(FRAMEWORK_DIR, "libraries")],
 )
@@ -169,7 +172,7 @@ if "build.variant" in board:
 
 libs.append(
     env.BuildLibrary(
-        join("$BUILD_DIR", "FrameworkArduino"), join(FRAMEWORK_DIR, "cores", build_core)
+        join("$BUILD_DIR", "FrameworkArduino"), join(FRAMEWORK_DIR, "cores", build_core_dir)
     )
 )
 

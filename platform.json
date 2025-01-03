@@ -55,6 +55,11 @@
       "optional": true,
       "version": "~1.5.6"
     },
+    "framework-arduino-megaavr-thinary": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/maxgerhardt/ThinaryArduino.git"
+    },
     "tool-avrdude-megaavr": {
       "type": "uploader",
       "optional": true,
